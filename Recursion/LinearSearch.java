@@ -4,19 +4,17 @@
 import java.util.*;
 
 public class LinearSearch {
-    static boolean bool = false;
 
-    static boolean search(int[] arr, int idx, int key) {
+    static int search(int[] arr, int idx, int key) {
 
         if (idx >= arr.length) {
-            return bool;
+            return -1;
         }
-        if (arr[idx] == key) {
-            bool = true;
+        if (arr[idx] == key)
+            return idx;
 
-        }
-        search(arr, idx + 1, key);
-        return bool;
+        return search(arr, idx + 1, key);
+
     }
 
     public static void main(String[] args) {
