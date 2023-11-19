@@ -4,16 +4,31 @@
 import java.util.*;
 
 public class removeAllOccurrence {
-    static String remove(String str, String newStr, int idx) {
-        if (idx >= str.length()) {
-            return newStr;
-        }
-        if (str.charAt(idx) != 'a') {
+    // static String remove(String str, String newStr, int idx) {
+    // if (idx >= str.length()) {
+    // return newStr;
+    // }
+    // if (str.charAt(idx) != 'a') {
 
-            newStr += str.charAt(idx);
+    // newStr += str.charAt(idx);
 
+    // }
+    // return remove(str, newStr, idx + 1);
+
+    // }
+
+    static String remove(String str) {
+        if (str.length() == 0) {
+            return "";
         }
-        return remove(str, newStr, idx + 1);
+
+        String smallAns = remove(str.substring(1));
+        char currChar = str.charAt(0);
+        if (currChar != 'a') {
+            return currChar + smallAns;
+        } else {
+            return smallAns;
+        }
 
     }
 
@@ -21,6 +36,6 @@ public class removeAllOccurrence {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         String newStr = "";
-        System.out.println(remove(str, newStr, 0));
+        System.out.println(remove(str));
     }
 }
