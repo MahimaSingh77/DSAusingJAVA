@@ -17,13 +17,17 @@ public class removeAllOccurrence {
 
     // }
 
-    static String remove(String str) {
-        if (str.length() == 0) {
+
+
+
+
+     static String remove(String str , int idx) {
+        if (idx == str.length()) {
             return "";
         }
 
-        String smallAns = remove(str.substring(1));
-        char currChar = str.charAt(0);
+        String smallAns = remove(str , idx+1);
+        char currChar = str.charAt(idx);
         if (currChar != 'a') {
             return currChar + smallAns;
         } else {
@@ -32,10 +36,28 @@ public class removeAllOccurrence {
 
     }
 
+
+
+
+    // static String remove(String str) {
+    //     if (str.length() == 0) {
+    //         return "";
+    //     }
+
+    //     String smallAns = remove(str.substring(1));
+    //     char currChar = str.charAt(0);
+    //     if (currChar != 'a') {
+    //         return currChar + smallAns;
+    //     } else {
+    //         return smallAns;
+    //     }
+
+    // }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         String newStr = "";
-        System.out.println(remove(str));
+        System.out.println(remove(str , 0));
     }
 }
